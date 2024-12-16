@@ -208,6 +208,7 @@ static void noop() {
 static void surface_enter(void *data, struct wl_surface *surface, struct wl_output *wl_output) {
 	struct wl_context *context = data;
 	context->output = wl_output_get_user_data(wl_output);
+	menu_render_items(context->menu);
 }
 
 static const struct wl_surface_listener surface_listener = {
