@@ -85,11 +85,11 @@ static bool parse_color(const char *color, uint32_t *result) {
 // Parse menu options from command line arguments.
 void menu_getopts(struct menu *menu, int argc, char *argv[]) {
 	const char *usage =
-		"Usage: wmenu [-bciPv] [-f font] [-l lines] [-o output] [-p prompt]\n"
+		"Usage: wmenu [-bciPv] [-f font] [-l lines] [-w width] [-o output] [-p prompt]\n"
 		"\t[-N color] [-n color] [-M color] [-m color] [-S color] [-s color]\n";
 
 	int opt;
-	while ((opt = getopt(argc, argv, "bchiPvf:l:o:p:N:n:M:m:S:s:")) != -1) {
+	while ((opt = getopt(argc, argv, "bchiPvf:l:w:o:p:N:n:M:m:S:s:")) != -1) {
 		switch (opt) {
 		case 'b':
 			menu->bottom = true;
@@ -111,6 +111,9 @@ void menu_getopts(struct menu *menu, int argc, char *argv[]) {
 			break;
 		case 'l':
 			menu->lines = atoi(optarg);
+			break;
+		case 'w':
+			menu->width = atoi(optarg);
 			break;
 		case 'o':
 			menu->output_name = optarg;

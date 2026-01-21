@@ -9,6 +9,7 @@ wmenu - dynamic menu for Wayland
 *wmenu* [-bciPv] \
   [-f _font_] \
   [-l _lines_] \
+  [-w _width_] \
   [-o _output_] \
   [-p _prompt_] \
   [-N _color_] [-n _color_] \
@@ -51,6 +52,9 @@ $PATH and runs the result.
 
 *-l* _lines_
 	wmenu lists items vertically, with the given number of lines.
+
+*-w* _width_
+	wmenu width in pixels.
 
 *-o* _output_
 	wmenu is displayed on the output with the given name.
