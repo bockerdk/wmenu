@@ -1,3 +1,13 @@
+# About
+
+This is a fork of [wmenu](https://codeberg.org/adnano/wmenu) with a broader scope than just feature parity with dmenu.
+
+Changes from upstream:
+
+- EditorConfig support
+- Option to center the menu
+- Option to set the menu width
+
 # wmenu
 
 wmenu is an efficient dynamic menu for Sway and wlroots based Wayland
