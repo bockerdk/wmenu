@@ -6,7 +6,7 @@ wmenu - dynamic menu for Wayland
 
 # SYNOPSIS
 
-*wmenu* [-biPv] \
+*wmenu* [-bciPv] \
   [-f _font_] \
   [-l _lines_] \
   [-o _output_] \
@@ -31,6 +31,9 @@ $PATH and runs the result.
 
 *-b*
 	wmenu appears at the bottom of the screen.
+
+*-c*
+	wmenu appears at the center of the screen.
 
 *-i*
 	wmenu matches menu items case insensitively.

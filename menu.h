@@ -31,6 +31,8 @@ struct page {
 struct menu {
 	// Whether the menu appears at the bottom of the screen
 	bool bottom;
+	// Whether the menu appears in the center of the screen
+	bool center;
 	// The function used to match menu items
 	int (*strncmp)(const char *, const char *, size_t);
 	// Whether the input is a password

@@ -446,15 +446,18 @@ int menu_run(struct menu *menu) {
 	assert(layer_surface != NULL);
 	context->layer_surface = layer_surface;
 
-	uint32_t anchor = ZWLR_LAYER_SURFACE_V1_ANCHOR_LEFT |
-		ZWLR_LAYER_SURFACE_V1_ANCHOR_RIGHT;
-	if (menu->bottom) {
-		anchor |= ZWLR_LAYER_SURFACE_V1_ANCHOR_BOTTOM;
-	} else {
-		anchor |= ZWLR_LAYER_SURFACE_V1_ANCHOR_TOP;
+	// Don't set anchor if menu should be centered (a missing anchor defaults to center)
+	if (!menu->center) {
+		uint32_t anchor = ZWLR_LAYER_SURFACE_V1_ANCHOR_LEFT |
+			ZWLR_LAYER_SURFACE_V1_ANCHOR_RIGHT;
+		if (menu->bottom) {
+			anchor |= ZWLR_LAYER_SURFACE_V1_ANCHOR_BOTTOM;
+		} else {
+			anchor |= ZWLR_LAYER_SURFACE_V1_ANCHOR_TOP;
+		}
+		zwlr_layer_surface_v1_set_anchor(layer_surface, anchor);
 	}
 
-	zwlr_layer_surface_v1_set_anchor(layer_surface, anchor);
 	zwlr_layer_surface_v1_set_size(layer_surface, 0, menu->height);
 	zwlr_layer_surface_v1_set_exclusive_zone(layer_surface, -1);
 	zwlr_layer_surface_v1_set_keyboard_interactivity(layer_surface, true);
